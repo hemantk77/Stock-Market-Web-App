@@ -93,3 +93,12 @@ body {
 .bottom-nav .nav-link i {
     font-size: 1.5rem; /* Make icons larger */
 }
+
+/* A wrapper link for cards that removes default text decoration */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit the text color from the parent */
+}
+.card-link:hover {
+    color: inherit; /* Keep the text color the same on hover */
+}
