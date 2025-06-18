@@ -1,0 +1,34 @@
+/* css/style.css */
+
+body {
+    /* Equivalent to your Scaffold's backgroundColor */
+    background-color: #7B90BB;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* A container for the form to give it a card-like appearance */
+.form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom button style to match your ElevatedButton */
+.btn-custom {
+    background-color: #5870a0;
+    color: #ffffff; /* Changed to white for better contrast */
+    font-weight: bold;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #4d5a74; /* A slightly darker color for hover effect */
+    color: #ffffff;
+}
+
+/* Style for the text link to register/login */
+.redirect-link {
+    text-align: center;
+    margin-top: 15px;
+}
