@@ -1,5 +1,3 @@
-/* css/style.css */
-
 body {
     /* Equivalent to your Scaffold's backgroundColor */
     background-color: #7B90BB;
@@ -31,4 +29,67 @@ body {
 .redirect-link {
     text-align: center;
     margin-top: 15px;
+}
+
+/* Tab navigation styling */
+.nav-pills .nav-link {
+    color: #FFF; /* Unselected text color */
+    background-color: #465a77; /* Unselected background */
+}
+
+.nav-pills .nav-link.active {
+    color: #FFF; /* Selected text color */
+    background-color: #7B90BB; /* Selected background, matches body */
+    font-weight: bold;
+}
+
+/* Card styling for news and stocks */
+.data-card {
+    background-color: #4d5a74;
+    color: #ffffff;
+    border: 1px solid #5870a0;
+    margin-bottom: 1rem;
+}
+
+.data-card .card-title {
+    font-weight: bold;
+}
+
+.data-card .card-subtitle {
+    color: #adb5bd; /* Lighter text for subtitles */
+}
+
+.news-category-tag {
+    background-color: #7B90BB;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+/* Stock price change colors */
+.text-price-up {
+    color: #20c997; /* A nice green */
+}
+
+.text-price-down {
+    color: #dc3545; /* A standard red */
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+    background-color: #7B90BB;
+    border-top: 1px solid #5870a0;
+}
+
+.bottom-nav .nav-link {
+    color: #d1d1d1;
+}
+
+.bottom-nav .nav-link.active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.bottom-nav .nav-link i {
+    font-size: 1.5rem; /* Make icons larger */
 }
