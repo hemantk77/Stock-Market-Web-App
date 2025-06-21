@@ -1,15 +1,11 @@
 <?php
-// dashboard.php (Updated with Live API Call)
+
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
     exit;
 }
-
-// --- Live API Call Section ---
-
-// Your secret API key from marketstack.com
 $apiKey = 88f9b1ad084575c4eb916236b0068dcf; // <--- PASTE YOUR KEY HERE
 
 // The stock symbols we want to fetch

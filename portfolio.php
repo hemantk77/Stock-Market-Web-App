@@ -1,5 +1,4 @@
 <?php
-// portfolio.php (Updated with Live API Call)
 
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
