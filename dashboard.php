@@ -1,27 +1,43 @@
 <?php
-// dashboard.php (Refactored Version)
+// dashboard.php (Updated to use .png logos)
 session_start();
+
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
     exit;
 }
+
 $apiKey = "88f9b1ad084575c4eb916236b0068dcf"; // <--- PASTE YOUR KEY HERE
 $symbols = "AAPL,MSFT,TSLA,GOOGL";
 $apiUrl = "http://api.marketstack.com/v1/eod/latest?access_key={$apiKey}&symbols={$symbols}";
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $apiResponse = curl_exec($ch);
 curl_close($ch);
+
 $stockData = json_decode($apiResponse, true);
 $stockOverviews = [];
+
 if (isset($stockData['data'])) {
     foreach ($stockData['data'] as $stock) {
         $change = $stock['close'] - $stock['open'];
         $percentageChange = ($stock['open'] > 0) ? ($change / $stock['open']) * 100 : 0;
-        $stockOverviews[] = ['logoPath' => 'img/logos/' . strtolower($stock['symbol']) . '.png',];
+        
+        $stockOverviews[] = [
+            // --- THIS IS THE UPDATED LINE for .png files ---
+            'logoPath' => 'img/logos/' . strtolower($stock['symbol']) . '.png',
+            'symbol' => $stock['symbol'],
+            'companyName' => $stock['symbol'],
+            'price' => '$' . number_format($stock['close'], 2),
+            'changeAmount' => number_format($change, 2),
+            'percentage' => number_format($percentageChange, 2) . '%',
+            'isPositive' => $change >= 0,
+        ];
     }
 }
+
 $newsItems = [
     ['imageUrl' => 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070', 'category' => 'Markets', 'publishTime' => '2 hours ago', 'title' => 'Stock Market Hits Record High as Tech Shares Surge', 'description' => 'Major indices saw significant gains as new data suggests a stronger-than-expected economic recovery.', 'source' => 'Financial Times'],
 ];
