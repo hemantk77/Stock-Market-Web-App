@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 $username = explode('@', $_SESSION['email'])[0];
 
 // --- Live API Call Section ---
-$apiKey = 88f9b1ad084575c4eb916236b0068dcf; // <--- PASTE YOUR KEY HERE
+$apiKey = "88f9b1ad084575c4eb916236b0068dcf"; // <--- PASTE YOUR KEY HERE
 
 // Define the symbols for all sections of this page
 $portfolioSymbols = ['AAPL', 'GOOGL', 'TSLA', 'MSFT'];
