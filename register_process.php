@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Step 1: Database connection variables for a default XAMPP setup
     $db_server = "localhost";
     $db_username = "root";
-    $db_password = ""; // Default XAMPP password is empty
+    $db_password = "root"; 
     $db_name = "stock_app_db"; // The database name we created
 
     // Create a new database connection
