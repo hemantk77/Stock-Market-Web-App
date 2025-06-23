@@ -1,18 +1,17 @@
 <?php
-// login_process.php
+// login_process.php (Updated with local database credentials)
 
 // Step 1: Start a session.
-// This must be the very first thing in your script to use sessions.
 session_start();
 
 // Check if the form was submitted using the POST method.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Step 2: Database connection variables
-        $db_server = "localhost";
-        $db_username = "root";
-        $db_password = ""; // The default password for XAMPP is an empty string
-        $db_name = "stock_app_db"; // The database name we created earlier
+    // Step 2: Database connection variables for a default XAMPP setup
+    $db_server = "localhost";
+    $db_username = "root";
+    $db_password = ""; // Default XAMPP password is empty
+    $db_name = "stock_app_db"; // The database name we created
 
     // Create a new database connection
     $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
@@ -54,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $user['email'];
 
             // Redirect the user to a protected dashboard or main page
-            header("Location: dashboard.php"); // You will create this page next
+            header("Location: dashboard.php");
             exit();
 
         } else {
