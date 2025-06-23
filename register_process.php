@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db_name = "stock_app_db"; // The database name we created
 
     // Create a new database connection
-    $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
+    $conn = new mysqli($db_server, $db_username, $db_password, $db_name, 3307);
 
     // Check the connection
     if ($conn->connect_error) {
