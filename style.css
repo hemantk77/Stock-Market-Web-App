@@ -1,54 +1,31 @@
+/* css/style.css (New Themed Version) */
+
+/* Define the color palette from your app as CSS variables */
+:root {
+    --primary-bg: #7B90BB; /* The main slate-blue background */
+    --card-bg: #4d5a74;    /* The darker blue-grey for cards and containers */
+    --card-border: #5870a0;
+    --text-primary: #FFFFFF;
+    --text-secondary: #adb5bd; /* A light grey for subtitles */
+    --accent-positive: #2DF90C;
+    --accent-negative: #FFA932;
+    --button-bg: #5870a0;
+}
+
 body {
-    /* Equivalent to your Scaffold's backgroundColor */
-    background-color: #7B90BB;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* A container for the form to give it a card-like appearance */
-.form-container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Custom button style to match your ElevatedButton */
-.btn-custom {
-    background-color: #5870a0;
-    color: #ffffff; /* Changed to white for better contrast */
-    font-weight: bold;
-    border: none;
-}
-
-.btn-custom:hover {
-    background-color: #4d5a74; /* A slightly darker color for hover effect */
-    color: #ffffff;
-}
-
-/* Style for the text link to register/login */
-.redirect-link {
-    text-align: center;
-    margin-top: 15px;
-}
-
-/* Tab navigation styling */
-.nav-pills .nav-link {
-    color: #FFF; /* Unselected text color */
-    background-color: #465a77; /* Unselected background */
-}
-
-.nav-pills .nav-link.active {
-    color: #FFF; /* Selected text color */
-    background-color: #7B90BB; /* Selected background, matches body */
-    font-weight: bold;
-}
-
-/* Card styling for news and stocks */
+/* A general-purpose card for all content boxes */
 .data-card {
-    background-color: #4d5a74;
-    color: #ffffff;
-    border: 1px solid #5870a0;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .data-card .card-title {
@@ -56,49 +33,54 @@ body {
 }
 
 .data-card .card-subtitle {
-    color: #adb5bd; /* Lighter text for subtitles */
+    color: var(--text-secondary);
 }
 
-.news-category-tag {
-    background-color: #7B90BB;
-    padding: 0.25rem 0.6rem;
-    border-radius: 12px;
-    font-size: 0.8em;
-}
-
-/* Stock price change colors */
+/* Utility classes for stock price colors */
 .text-price-up {
-    color: #20c997; /* A nice green */
+    color: var(--accent-positive);
 }
-
 .text-price-down {
-    color: #dc3545; /* A standard red */
+    color: var(--accent-negative);
 }
 
-/* Bottom navigation bar */
+/* Custom button style to match your app */
+.btn-custom {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    font-weight: bold;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.btn-custom:hover {
+    background-color: #465a77; /* A slightly darker color for hover effect */
+    color: var(--text-primary);
+}
+
+/* Styling for links to make them look like plain text */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.card-link:hover {
+    color: inherit;
+    /* Optional: Add a subtle effect on hover */
+    filter: brightness(1.1);
+}
+
+/* Bottom Navigation Bar */
 .bottom-nav {
-    background-color: #7B90BB;
-    border-top: 1px solid #5870a0;
+    background-color: var(--primary-bg);
+    border-top: 1px solid var(--card-border);
 }
-
 .bottom-nav .nav-link {
     color: #d1d1d1;
 }
-
 .bottom-nav .nav-link.active {
-    color: #ffffff;
-    font-weight: bold;
+    color: var(--text-primary);
 }
-
 .bottom-nav .nav-link i {
-    font-size: 1.5rem; /* Make icons larger */
-}
-
-/* A wrapper link for cards that removes default text decoration */
-.card-link {
-    text-decoration: none;
-    color: inherit; /* Inherit the text color from the parent */
-}
-.card-link:hover {
-    color: inherit; /* Keep the text color the same on hover */
+    font-size: 1.5rem;
 }
