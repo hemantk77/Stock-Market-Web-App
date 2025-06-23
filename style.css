@@ -1,12 +1,9 @@
-/* css/style.css (New Themed Version) */
-
-/* Define the color palette from your app as CSS variables */
 :root {
-    --primary-bg: #7B90BB; /* The main slate-blue background */
-    --card-bg: #4d5a74;    /* The darker blue-grey for cards and containers */
+    --primary-bg: #7B90BB; 
+    --card-bg: #4d5a74;    
     --card-border: #5870a0;
     --text-primary: #FFFFFF;
-    --text-secondary: #adb5bd; /* A light grey for subtitles */
+    --text-secondary: #adb5bd; 
     --accent-positive: #2DF90C;
     --accent-negative: #FFA932;
     --button-bg: #5870a0;
@@ -18,7 +15,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* A general-purpose card for all content boxes */
 .data-card {
     background-color: var(--card-bg);
     color: var(--text-primary);
@@ -36,7 +32,6 @@ body {
     color: var(--text-secondary);
 }
 
-/* Utility classes for stock price colors */
 .text-price-up {
     color: var(--accent-positive);
 }
@@ -44,7 +39,6 @@ body {
     color: var(--accent-negative);
 }
 
-/* Custom button style to match your app */
 .btn-custom {
     background-color: var(--button-bg);
     color: var(--text-primary);
@@ -55,22 +49,19 @@ body {
 }
 
 .btn-custom:hover {
-    background-color: #465a77; /* A slightly darker color for hover effect */
+    background-color: #465a77; 
     color: var(--text-primary);
 }
 
-/* Styling for links to make them look like plain text */
 .card-link {
     text-decoration: none;
     color: inherit;
 }
 .card-link:hover {
     color: inherit;
-    /* Optional: Add a subtle effect on hover */
     filter: brightness(1.1);
 }
 
-/* Bottom Navigation Bar */
 .bottom-nav {
     background-color: var(--primary-bg);
     border-top: 1px solid var(--card-border);
