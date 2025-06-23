@@ -8,11 +8,11 @@ session_start();
 // Check if the form was submitted using the POST method.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Step 2: Database connection variables (use the same ones from your register script)
-    $db_server = "YOUR_DBSERVER";           // e.g., "localhost"
-    $db_username = "YOUR_DB_USERNAME";    // e.g., "root"
-    $db_password = "YOUR_DB_PASSWORD";    // Your database password
-    $db_name = "YOUR_DB_NAME";              // The name of your database
+    // Step 2: Database connection variables
+        $db_server = "localhost";
+        $db_username = "root";
+        $db_password = ""; // The default password for XAMPP is an empty string
+        $db_name = "stock_app_db"; // The database name we created earlier
 
     // Create a new database connection
     $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
