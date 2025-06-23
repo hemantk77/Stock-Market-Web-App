@@ -147,7 +147,7 @@ $newsItems = [
             <i class="bi bi-newspaper"></i>
             <div class="small">Overview</div>
         </a>
-        <a href="#" class="nav-link text-center">
+        <a href="markets.php" class="nav-link text-center">
             <i class="bi bi-graph-up"></i>
             <div class="small">Markets</div>
         </a>
