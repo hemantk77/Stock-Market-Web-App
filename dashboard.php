@@ -74,7 +74,7 @@ $newsItems = [
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-news" role="tabpanel">
                 <?php foreach ($newsItems as $item): ?>
-                    <a href="#" class="card-link">
+                    <a href="news_details.php" class="card-link">
                         <div class="card data-card border-0 mb-3">
                             <img src="<?= htmlspecialchars($item['imageUrl']) ?>" class="card-img-top" alt="News Image" style="max-height: 180px; object-fit: cover;">
                             <div class="card-body">
