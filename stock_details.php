@@ -11,7 +11,7 @@ $stockDetails = null;
 
 if ($symbol) {
     // --- Live API Call Section ---
-    $apiKey = 88f9b1ad084575c4eb916236b0068dcf; // <--- PASTE YOUR KEY HERE
+    $apiKey = "88f9b1ad084575c4eb916236b0068dcf"; // <--- PASTE YOUR KEY HERE
     $apiUrl = "http://api.marketstack.com/v1/eod/latest?access_key={$apiKey}&symbols={$symbol}";
     
     $ch = curl_init();
