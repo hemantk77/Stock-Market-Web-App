@@ -19,7 +19,7 @@ if (isset($stockData['data'])) {
     foreach ($stockData['data'] as $stock) {
         $change = $stock['close'] - $stock['open'];
         $percentageChange = ($stock['open'] > 0) ? ($change / $stock['open']) * 100 : 0;
-        $stockOverviews[] = ['logoPath' => 'https://via.placeholder.com/50/FFF/000?text=' . substr($stock['symbol'], 0, 1),'symbol' => $stock['symbol'],'companyName' => $stock['symbol'],'price' => '$' . number_format($stock['close'], 2),'changeAmount' => number_format($change, 2),'percentage' => number_format($percentageChange, 2) . '%','isPositive' => $change >= 0,];
+        $stockOverviews[] = ['logoPath' => 'img/logos/' . strtolower($stock['symbol']) . '.png',];
     }
 }
 $newsItems = [
