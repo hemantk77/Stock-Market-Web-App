@@ -1,12 +1,16 @@
 <?php
-
+// dashboard.php (Updated with Live API Call)
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
     exit;
 }
-$apiKey = 88f9b1ad084575c4eb916236b0068dcf; // <--- PASTE YOUR KEY HERE
+
+// --- Live API Call Section ---
+
+// Your secret API key from marketstack.com
+$apiKey = "YOUR_ACTUAL_API_KEY"; // <--- PASTE YOUR KEY HERE
 
 // The stock symbols we want to fetch
 $symbols = "AAPL,MSFT,TSLA,GOOGL";
@@ -34,7 +38,6 @@ if (isset($stockData['data'])) {
         $change = $stock['close'] - $stock['open'];
         $percentageChange = ($stock['open'] > 0) ? ($change / $stock['open']) * 100 : 0;
         
-        // Format the data to match what our HTML expects
         $stockOverviews[] = [
             'logoPath' => 'https://via.placeholder.com/50/888/FFFFFF?text=' . substr($stock['symbol'], 0, 1),
             'symbol' => $stock['symbol'],
@@ -45,13 +48,7 @@ if (isset($stockData['data'])) {
             'isPositive' => $change >= 0,
         ];
     }
-} else {
-    // Handle cases where the API call might fail
-    // For now, we'll just show an empty list or a message.
 }
-
-// --- End of API Call Section ---
-
 
 // Sample data for News (we'll keep this static for now)
 $newsItems = [
@@ -81,10 +78,10 @@ $newsItems = [
 
         <ul class="nav nav-pills nav-fill mb-4" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-stocks-tab" data-bs-toggle="pill" data-bs-target="#pills-stocks" type="button" role="tab">Stock Prices</button>
+                <button class="nav-link active" id="pills-news-tab" data-bs-toggle="pill" data-bs-target="#pills-news" type="button" role="tab">Latest News</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-news-tab" data-bs-toggle="pill" data-bs-target="#pills-news" type="button" role="tab">Latest News</button>
+                <button class="nav-link" id="pills-stocks-tab" data-bs-toggle="pill" data-bs-target="#pills-stocks" type="button" role="tab">Stock Prices</button>
             </li>
         </ul>
 
