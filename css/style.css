@@ -75,3 +75,23 @@ body {
 .bottom-nav .nav-link i {
     font-size: 1.5rem;
 }
+
+.custom-tabs {
+    background-color: var(--card-bg);
+    border-radius: 25px;
+    padding: 5px;
+    border: 1px solid var(--card-border);
+}
+
+.custom-tabs .nav-link {
+    color: var(--text-secondary);
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.custom-tabs .nav-link.active {
+    color: var(--text-primary);
+    background-color: var(--primary-bg); 
+    font-weight: bold;
+}
