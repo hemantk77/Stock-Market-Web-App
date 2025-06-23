@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 // --- Live API Call Section ---
 
 // Your secret API key from marketstack.com
-$apiKey = "YOUR_ACTUAL_API_KEY"; // <--- PASTE YOUR KEY HERE
+$apiKey = "88f9b1ad084575c4eb916236b0068dcf"; // <--- PASTE YOUR KEY HERE
 
 // The stock symbols we want to fetch
 $symbols = "AAPL,MSFT,TSLA,GOOGL";
