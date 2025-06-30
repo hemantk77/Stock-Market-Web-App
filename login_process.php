@@ -1,5 +1,8 @@
 <?php
 // login_process.php (Updated with local database credentials)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Step 1: Start a session.
 session_start();
@@ -8,13 +11,13 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Step 2: Database connection variables for a default XAMPP setup
-    $db_server = "localhost";
-    $db_username = "root";
-    $db_password = "password123";
-    $db_name = "stock_app_db"; // The database name we created
+    $db_server = "sql100.infinityfree.com";
+    $db_username = "if0_39306569";
+    $db_password = "Group2frontend";
+    $db_name = "if0_39306569_stockapp"; // The database name we created
 
     // Create a new database connection
-    $conn = new mysqli($db_server, $db_username, $db_password, $db_name, 3307);
+    $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
     // Check the connection
     if ($conn->connect_error) {
