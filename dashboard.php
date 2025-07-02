@@ -1,5 +1,5 @@
 <?php
-// dashboard.php (Updated to use .png logos)
+// dashboard.php
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-$apiKey = "88f9b1ad084575c4eb916236b0068dcf"; // <--- PASTE YOUR KEY HERE
+$apiKey = "88f9b1ad084575c4eb916236b0068dcf";
 $symbols = "AAPL,MSFT,TSLA,GOOGL";
 $apiUrl = "http://api.marketstack.com/v1/eod/latest?access_key={$apiKey}&symbols={$symbols}";
 
@@ -26,7 +26,6 @@ if (isset($stockData['data'])) {
         $percentageChange = ($stock['open'] > 0) ? ($change / $stock['open']) * 100 : 0;
         
         $stockOverviews[] = [
-            // --- THIS IS THE UPDATED LINE for .png files ---
             'logoPath' => 'img/logos/' . strtolower($stock['symbol']) . '.png',
             'symbol' => $stock['symbol'],
             'companyName' => $stock['symbol'],
@@ -119,11 +118,22 @@ $newsItems = [
 
     <nav class="navbar fixed-bottom bottom-nav">
         <div class="container-fluid d-flex justify-content-around">
-            <a href="portfolio.php" class="nav-link text-center"><i class="bi bi-wallet-fill"></i><div class="small">Portfolio</div></a>
-            <a href="dashboard.php" class="nav-link active text-center"><i class="bi bi-newspaper"></i><div class="small">Overview</div></a>
-            <a href="markets.php" class="nav-link text-center"><i class="bi bi-graph-up"></i><div class="small">Markets</div></a>
-            <a href="#" class="nav-link text-center"><i class="bi bi-search"></i><div class="small">Search</div></a>
-            <a href="profile.php" class="nav-link text-center"><i class="bi bi-person-circle"></i><div class="small">Profile</div></a>
+            <a href="portfolio.php" class="nav-link text-center">
+            <i class="bi bi-wallet-fill"></i>
+            <div class="small">Portfolio</div>
+            </a>
+            <a href="dashboard.php" class="nav-link text-center">
+            <i class="bi bi-newspaper"></i>
+            <div class="small">Overview</div>
+            </a>
+            <a href="markets.php" class="nav-link text-center">
+            <i class="bi bi-graph-up"></i>
+            <div class="small">Markets</div>
+            </a>
+            <a href="profile.php" class="nav-link text-center">
+            <i class="bi bi-person-circle"></i>
+            <div class="small">Profile</div>
+            </a>
         </div>
     </nav>
     <div style="padding-bottom: 80px;"></div>
