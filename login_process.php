@@ -1,5 +1,5 @@
 <?php
-// login_process.php (Updated with local database credentials)
+// login_process.php 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -14,12 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db_server = "sql100.infinityfree.com";
     $db_username = "if0_39306569";
     $db_password = "Group2frontend";
-    $db_name = "if0_39306569_stockapp"; // The database name we created
+    $db_name = "if0_39306569_stockapp";
 
-    // Create a new database connection
     $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
-    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -38,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     
-    // Get the result
     $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
@@ -47,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Step 5: Verify the submitted password against the hashed password from the database.
         if (password_verify($password, $user['password'])) {
-            // Password is correct!
 
             // Step 6: Regenerate session ID for security and store user data in the session.
             session_regenerate_id(true);
@@ -55,12 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
 
-            // Redirect the user to a protected dashboard or main page
             header("Location: dashboard.php");
             exit();
 
         } else {
-            // Incorrect password
             header("Location: login.php?error=" . urlencode("Invalid email or password."));
             exit();
         }

@@ -1,26 +1,20 @@
 <?php
-// register_process.php (FINAL CORRECTED VERSION)
+// register_process.php 
 
-// These 3 lines are for debugging and can be removed after we fix the issue
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// --- FINAL DATABASE CREDENTIALS FOR INFINITYFREE ---
-$db_server = "sql100.infinityfree.com"; // Or your specific SQL hostname from InfinityFree
-$db_username = "if0_39306569"; // Your username from InfinityFree
-$db_password = "Group2frontend"; // The password for your account
-$db_name = "if0_39306569_stockapp"; // Your full database name from InfinityFree
+$db_server = "sql100.infinityfree.com"; 
+$db_username = "if0_39306569"; 
+$db_password = "Group2frontend"; 
+$db_name = "if0_39306569_stockapp"; 
 
-// The corrected connection line without the incorrect port
 $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 
-// Check for connection errors right after trying to connect
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// --- The rest of your registration logic ---
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
