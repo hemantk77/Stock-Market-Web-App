@@ -1,5 +1,5 @@
 <?php
-// stock_details.php (Updated with Interactive Chart.js)
+// stock_details.php
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
@@ -10,7 +10,7 @@ $symbol = isset($_GET['symbol']) ? htmlspecialchars($_GET['symbol']) : null;
 $stockDetails = null;
 
 if ($symbol) {
-    $apiKey = "88f9b1ad084575c4eb916236b0068dcf"; // <-- Don't forget your API Key
+    $apiKey = "88f9b1ad084575c4eb916236b0068dcf";
     $apiUrl = "http://api.marketstack.com/v1/eod/latest?access_key={$apiKey}&symbols={$symbol}";
     
     $ch = curl_init();
@@ -64,7 +64,7 @@ if ($symbol) {
 
         <?php if ($stockDetails): ?>
             <section class="data-card p-3 mb-4">
-                 <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center">
                     <img src="<?= htmlspecialchars($stockDetails['logoPath']) ?>" alt="Logo" class="rounded-circle me-3" style="width: 60px; height: 60px;">
                     <div class="flex-grow-1">
                         <h4 class="fw-bold mb-0"><?= htmlspecialchars($stockDetails['symbol']) ?></h4>
@@ -90,7 +90,13 @@ if ($symbol) {
                 <canvas id="stockChart"></canvas>
             </section>
 
-            <?php else: ?>
+            <section class="mb-4">
+                 </section>
+
+            <section>
+                </section>
+
+        <?php else: ?>
             <div class="alert alert-danger">Could not fetch details for the stock symbol '<?= htmlspecialchars($symbol) ?>'.</div>
         <?php endif; ?>
     </div>
@@ -100,23 +106,21 @@ if ($symbol) {
         // Check if we have stock data before trying to create a chart
         <?php if ($stockDetails): ?>
             
-            // --- NEW INTERACTIVE CHART.JS CODE ---
-
-            // 1. Get the canvas element from the HTML
+            // Get the canvas element from the HTML
             const ctx = document.getElementById('stockChart');
 
-            // 2. Define colors based on the stock's performance (passed from PHP)
+            // Define colors based on the stock's performance (passed from PHP)
             const isPositive = <?= json_encode($stockDetails['isPositive']) ?>;
             const accentColor = isPositive ? 'rgba(45, 249, 12, 1)' : 'rgba(255, 169, 50, 1)';
             const gradientColor = isPositive ? 'rgba(45, 249, 12, 0.2)' : 'rgba(255, 169, 50, 0.2)';
 
-            // 3. Sample data for the chart. A real app would fetch this via another API call.
+            // Sample data for the chart.
             const labels = ['9:30am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm'];
             const dataPoints = isPositive 
                 ? [170.1, 171.5, 171.2, 172.8, 172.5, 173.1, 172.9, 172.28]
                 : [173.1, 172.5, 172.8, 171.2, 171.5, 170.1, 170.5, 169.90];
 
-            // 4. Create the chart with a much more professional and interactive configuration
+            // Create the chart with the interactive configuration
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -126,10 +130,10 @@ if ($symbol) {
                         data: dataPoints,
                         borderColor: accentColor,
                         backgroundColor: gradientColor,
-                        fill: true, // This creates the area fill below the line
-                        tension: 0.4, // This makes the line curved
+                        fill: true,
+                        tension: 0.4,
                         borderWidth: 2,
-                        pointRadius: 0 // Hides the dots on the line
+                        pointRadius: 0
                     }]
                 },
                 options: {
@@ -137,12 +141,10 @@ if ($symbol) {
                     maintainAspectRatio: true,
                     interaction: {
                         intersect: false,
-                        mode: 'index', // Tooltips will show for the nearest data point
+                        mode: 'index',
                     },
                     plugins: {
-                        legend: {
-                            display: false // Hides the "Price (USD)" legend
-                        },
+                        legend: { display: false },
                         tooltip: {
                             backgroundColor: '#000',
                             titleFont: { size: 14, weight: 'bold' },
@@ -153,20 +155,12 @@ if ($symbol) {
                     },
                     scales: {
                         x: {
-                            grid: {
-                                display: false // Hides vertical grid lines
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            grid: { display: false },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         },
                         y: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)' // Makes horizontal grid lines subtle
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.7)'
-                            }
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: 'rgba(255, 255, 255, 0.7)' }
                         }
                     }
                 }
